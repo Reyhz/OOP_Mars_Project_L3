@@ -1,2 +1,4 @@
 .gradle
 .vscode
+build/
+bin/main/fr/ubx/poo/td2

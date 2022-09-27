@@ -54,6 +54,8 @@ public class Vehicle {
             energy -= dist * cost;
             setMoving(false);
         }
+
+        System.out.println(this);
     }
 
     public int distance(Position target){
@@ -62,5 +64,9 @@ public class Vehicle {
 
     public Position[] getPathTo(Position target){
         return null;
+    }
+
+    public String toString(){
+        return "Move Completed: " + this.getClass().getSimpleName() + "( Energy = " + this.energy + " )";
     }
 }

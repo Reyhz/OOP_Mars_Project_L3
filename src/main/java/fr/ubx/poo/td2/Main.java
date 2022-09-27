@@ -28,7 +28,7 @@ public class Main extends Application {
         view.getPane().setOnMouseClicked(e -> {
             Position target = view.getPosition(e);
             for(int i = 0; i < vehicle.length; i++){
-                if(vehicle[i].canMove(target) && !vehicle[i].getMoving()){
+                if(vehicle[i].canMove(target) && !vehicle[i].getMoving() && !vehicle[i].getPosition().equals(target)){
                     sprites[i].animateMove(target);
                 }
             }

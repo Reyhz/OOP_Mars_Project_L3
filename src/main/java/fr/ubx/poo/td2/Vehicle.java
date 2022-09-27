@@ -66,6 +66,7 @@ public class Vehicle {
         return null;
     }
 
+    @Override
     public String toString(){
         return "Move Completed: " + this.getClass().getSimpleName() + "( Energy = " + this.energy + " )";
     }

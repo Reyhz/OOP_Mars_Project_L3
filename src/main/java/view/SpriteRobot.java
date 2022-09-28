@@ -1,7 +1,7 @@
 package view;
 
-import fr.ubx.poo.td2.Robot;
 import javafx.scene.image.ImageView;
+import model.Robot;
 
 public class SpriteRobot extends Sprite {
     // Constrctors

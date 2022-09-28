@@ -1,11 +1,11 @@
 package view;
 
-import fr.ubx.poo.td2.Position;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import model.Position;
 
 public class View {
     private int width;

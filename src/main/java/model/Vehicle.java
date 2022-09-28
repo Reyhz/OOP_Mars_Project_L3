@@ -1,4 +1,4 @@
-package fr.ubx.poo.td2;
+package model;
 
 public abstract class Vehicle {
     // Data

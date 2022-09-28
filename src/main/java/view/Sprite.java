@@ -1,13 +1,13 @@
 package view;
 
-import fr.ubx.poo.td2.Position;
-import fr.ubx.poo.td2.Vehicle;
 import javafx.animation.PathTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
+import model.Position;
+import model.Vehicle;
 
 public abstract class Sprite {
     // Data

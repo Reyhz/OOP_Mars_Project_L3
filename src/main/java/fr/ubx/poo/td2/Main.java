@@ -2,6 +2,10 @@ package fr.ubx.poo.td2;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import model.Drone;
+import model.Position;
+import model.Robot;
+import model.Vehicle;
 import view.Sprite;
 import view.SpriteDrone;
 import view.SpriteRobot;

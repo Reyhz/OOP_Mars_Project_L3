@@ -1,7 +1,7 @@
 package view;
 
-import fr.ubx.poo.td2.Drone;
 import javafx.scene.image.ImageView;
+import model.Drone;
 
 public class SpriteDrone extends Sprite {
     // Constructors

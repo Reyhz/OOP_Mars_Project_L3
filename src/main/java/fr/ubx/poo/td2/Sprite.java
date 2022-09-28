@@ -7,7 +7,7 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
-public class Sprite {
+public abstract class Sprite {
     // Data
     private Vehicle vehicle;
     private ImageView img;

@@ -1,6 +1,6 @@
 package fr.ubx.poo.td2;
 
-public class Vehicle {
+public abstract class Vehicle {
     // Data
     private final double cost;
     private Position position;
@@ -58,13 +58,9 @@ public class Vehicle {
         System.out.println(this);
     }
 
-    public int distance(Position target){
-        return 0;
-    }
+    public abstract int distance(Position target);
 
-    public Position[] getPathTo(Position target){
-        return null;
-    }
+    public abstract Position[] getPathTo(Position target);
 
     @Override
     public String toString(){

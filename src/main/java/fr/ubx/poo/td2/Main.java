@@ -2,6 +2,10 @@ package fr.ubx.poo.td2;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import view.Sprite;
+import view.SpriteDrone;
+import view.SpriteRobot;
+import view.View;
 
 public class Main extends Application {
 

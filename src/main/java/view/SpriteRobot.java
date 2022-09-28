@@ -1,5 +1,6 @@
-package fr.ubx.poo.td2;
+package view;
 
+import fr.ubx.poo.td2.Robot;
 import javafx.scene.image.ImageView;
 
 public class SpriteRobot extends Sprite {

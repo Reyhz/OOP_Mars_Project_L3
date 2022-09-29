@@ -9,10 +9,18 @@ public class World {
     public static final int DUST = 2;
 
     private int grid[][];
+    private float percentageDust;
+    private float percentageRock;
 
-    // Constructor
+    // Constructors
     public World(int width, int height){
         this.grid = new int[width][height];
+    }
+
+    public World(int width, int height, float percentageRock, float percentageDust){
+        this(width, height);
+        this.percentageDust = percentageDust;
+        this.percentageRock = percentageRock;
     }
 
     // Methods

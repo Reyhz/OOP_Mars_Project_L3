@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Random;
+
 public class Position {
     private int x;
     private int y;
@@ -40,5 +42,12 @@ public class Position {
         Position pos = (Position)o;
 
         return this.getX() == pos.getX() && this.getY() == pos.getY();
+    }
+
+    Position random(int width, int height){
+        Random random = new Random();
+        this.x = random.nextInt(width);
+        this.y = random.nextInt(height);
+        return this;
     }
 }

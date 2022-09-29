@@ -8,19 +8,19 @@ public class World {
     public static final int ROCK = 1;
     public static final int DUST = 2;
 
+    private int tab[][];
+
     // Constructor
     public World(int width, int height){
-
+        this.tab = new int[width][height];
     }
 
     // Methods
-    // TODO: Get a world square type
     public int get(Position pos){
-        return 0;
+        return tab[pos.getX()][pos.getY()];
     }
 
-    // TODO: Set a world square type
     public void set(Position pos, int kind){
-    
+        tab[pos.getX()][pos.getY()] = kind;
     }
 }

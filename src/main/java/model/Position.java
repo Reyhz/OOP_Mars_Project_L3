@@ -44,7 +44,7 @@ public class Position {
         return this.getX() == pos.getX() && this.getY() == pos.getY();
     }
 
-    Position random(int width, int height){
+    public Position random(int width, int height){
         Random random = new Random();
         this.x = random.nextInt(width);
         this.y = random.nextInt(height);

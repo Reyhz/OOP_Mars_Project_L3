@@ -31,4 +31,9 @@ public class World {
     public void set(Position pos, int kind){
         this.grid[pos.getX()][pos.getY()] = kind;
     }
+
+    // TODO: Placing decor at random using percentageRock & percentageDust
+    private SpriteDecor[] randomizer(int width, int height){
+        return null;
+    }
 }

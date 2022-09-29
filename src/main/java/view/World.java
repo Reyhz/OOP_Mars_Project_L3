@@ -8,19 +8,19 @@ public class World {
     public static final int ROCK = 1;
     public static final int DUST = 2;
 
-    private int tab[][];
+    private int grid[][];
 
     // Constructor
     public World(int width, int height){
-        this.tab = new int[width][height];
+        this.grid = new int[width][height];
     }
 
     // Methods
     public int get(Position pos){
-        return tab[pos.getX()][pos.getY()];
+        return this.grid[pos.getX()][pos.getY()];
     }
 
     public void set(Position pos, int kind){
-        tab[pos.getX()][pos.getY()] = kind;
+        this.grid[pos.getX()][pos.getY()] = kind;
     }
 }

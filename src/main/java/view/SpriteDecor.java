@@ -11,5 +11,6 @@ public abstract class SpriteDecor extends Sprite {
     public SpriteDecor(Position pos, ImageView img){
         super(img);
         this.pos = pos;
+        updateLocation(this.pos);
     }
 }

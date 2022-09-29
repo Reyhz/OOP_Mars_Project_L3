@@ -21,7 +21,6 @@ public abstract class SpriteVehicle extends Sprite{
     }
 
     // Methods
-
     public void animateMove(Position target) {
         // Make the path movement
         Position[] positionPath = vehicle.getPathTo(target);

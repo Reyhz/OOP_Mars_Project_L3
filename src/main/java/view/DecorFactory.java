@@ -2,7 +2,7 @@ package view;
 
 import model.Position;
 
-public class DecorFactory {
+public abstract class DecorFactory {
     public static SpriteDecor create(Position position, int kind) {
         switch (kind) {
             case World.DUST:

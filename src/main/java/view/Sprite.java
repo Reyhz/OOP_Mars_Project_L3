@@ -3,7 +3,7 @@ package view;
 import javafx.scene.image.ImageView;
 import model.Position;
 
-public class Sprite {
+public abstract class Sprite {
     // Data
     protected ImageView img;
 

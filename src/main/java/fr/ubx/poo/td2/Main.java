@@ -6,7 +6,7 @@ import model.Drone;
 import model.Position;
 import model.Robot;
 import model.Vehicle;
-import view.Sprite;
+import view.SpriteVehicle;
 import view.SpriteDrone;
 import view.SpriteRobot;
 import view.View;
@@ -18,7 +18,7 @@ public class Main extends Application {
 
         // Creation du robot et du drone
         Vehicle[] vehicle = new Vehicle[2];
-        Sprite[] sprites = new Sprite[2];
+        SpriteVehicle[] sprites = new SpriteVehicle[2];
 
         Position position = new Position(4,4);
         vehicle[0] = new Robot(position, 200, 2);

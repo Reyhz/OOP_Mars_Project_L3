@@ -1,4 +1,4 @@
-package fr.ubx.poo.td2;
+package view;
 
 import javafx.animation.PathTransition;
 import javafx.scene.image.ImageView;
@@ -6,29 +6,21 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
+import model.Position;
+import model.Vehicle;
 
-public class Sprite {
+public abstract class SpriteVehicle extends Sprite{
     // Data
     private Vehicle vehicle;
-    private ImageView img;
 
     // Constructors
-    public Sprite(Vehicle vehicle, ImageView img){
+    public SpriteVehicle(Vehicle vehicle, ImageView img){
+        super(img);
         this.vehicle = vehicle;
-        this.img = img;
         updateLocation(this.vehicle.getPosition());
     }
 
     // Methods
-    public ImageView getImg(){
-        return img;
-    }
-
-    private void updateLocation(Position position) {
-        img.setX(position.getX() * ImageResource.size);
-        img.setY(position.getY() * ImageResource.size);
-    }
-
     public void animateMove(Position target) {
         // Make the path movement
         Position[] positionPath = vehicle.getPathTo(target);
@@ -49,7 +41,7 @@ public class Sprite {
             ptr.play();
 
             ptr.setOnFinished(e -> {
-                vehicle.move(target);
+                vehicle.move(positionPath[positionPath.length-1]);
             });
         } else {
             // Direct move

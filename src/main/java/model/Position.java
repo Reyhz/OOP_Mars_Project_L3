@@ -1,4 +1,6 @@
-package fr.ubx.poo.td2;
+package model;
+
+import java.util.Random;
 
 public class Position {
     private int x;
@@ -40,5 +42,12 @@ public class Position {
         Position pos = (Position)o;
 
         return this.getX() == pos.getX() && this.getY() == pos.getY();
+    }
+
+    public Position random(int width, int height){
+        Random random = new Random();
+        this.x = random.nextInt(width);
+        this.y = random.nextInt(height);
+        return this;
     }
 }

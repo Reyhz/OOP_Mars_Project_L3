@@ -1,5 +1,8 @@
 package view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import model.Position;
 
 public class World {
@@ -9,15 +12,19 @@ public class World {
     public static final int DUST = 2;
 
     private int grid[][];
-    private float percentageDust;
-    private float percentageRock;
+    private int width;
+    private int height;
+    private int percentageDust;
+    private int percentageRock;
 
     // Constructors
     public World(int width, int height){
         this.grid = new int[width][height];
+        this.width = width;
+        this.height = height;
     }
 
-    public World(int width, int height, float percentageRock, float percentageDust){
+    public World(int width, int height, int percentageRock, int percentageDust){
         this(width, height);
         this.percentageDust = percentageDust;
         this.percentageRock = percentageRock;
@@ -32,8 +39,46 @@ public class World {
         this.grid[pos.getX()][pos.getY()] = kind;
     }
 
-    // TODO: Placing decor at random using percentageRock & percentageDust
-    private SpriteDecor[] randomizer(int width, int height){
-        return null;
+    public int getWidth(){
+        return this.width;
+    }
+
+    public int getHeight(){
+        return this.height;
+    }
+
+    public SpriteDecor[] randomizer(){
+        return randomizer(this.width, this.height);
+    }
+
+    public SpriteDecor[] randomizer(int width, int height){
+        List<SpriteDecor> dec_list = new ArrayList<SpriteDecor>();
+        Position rdm_pos = new Position(0, 0);
+
+        int kind = DUST;
+        int nbr_dust = (int)((width * height) * ((float)this.percentageDust / 100));
+        int nbr_rock = (int)((width * height) * ((float)this.percentageRock / 100));
+        while( nbr_rock != 0 ){
+            if( nbr_dust == 0 && kind != ROCK ){
+                kind = ROCK;
+            }
+
+            rdm_pos.random(width, height);
+            if( this.grid[rdm_pos.getX()][rdm_pos.getY()] == EMPTY){
+                // Adding the corresponding sprite to the array
+                dec_list.add(DecorFactory.create(rdm_pos, kind));
+                set(rdm_pos, kind);
+                
+                // We placed a decor element, we decrement the counter
+                if(kind == DUST) nbr_dust--;
+                else nbr_rock--;
+            }
+        }
+
+        // Converting the list back to array, to mach the return type of the function
+        SpriteDecor[] dec_array = new SpriteDecor[dec_list.size()];
+        dec_list.toArray( dec_array );
+
+        return dec_array;
     }
 }

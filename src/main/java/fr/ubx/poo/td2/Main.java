@@ -18,6 +18,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage)  {
+        // Set view width & height
+        int width = 20;
+        int height = 20;
 
         // Creation du robot et du drone
         Vehicle[] vehicle = new Vehicle[2];
@@ -31,19 +34,22 @@ public class Main extends Application {
         vehicle[1] = new Drone(position, 200, 2);
         sprites_veh[1] = new SpriteDrone((Drone) vehicle[1]);
 
-        // Creating Decor Sprites array
-        SpriteDecor[] sprites_dec = new SpriteDecor[3];
-        position = new Position(15, 10);
-        sprites_dec[0] = DecorFactory.create(position, World.ROCK);
+        // Creating World map
+        // SpriteDecor[] sprites_dec = new SpriteDecor[3];
+        // position = new Position(15, 10);
+        // sprites_dec[0] = DecorFactory.create(position, World.ROCK);
 
-        position = new Position(11, 6);
-        sprites_dec[1] = DecorFactory.create(position, World.DUST);
+        // position = new Position(11, 6);
+        // sprites_dec[1] = DecorFactory.create(position, World.DUST);
 
-        position = new Position(9, 4);
-        sprites_dec[2] = DecorFactory.create(position, World.ROCK);
+        // position = new Position(9, 4);
+        // sprites_dec[2] = DecorFactory.create(position, World.ROCK);
+
+        World world = new World(width, height, 25, 10);
+        SpriteDecor[] sprites_dec = world.randomizer();
 
         // Affiche la fenetre
-        View view = new View(20, 20);
+        View view = new View(width, height);
         stage.setTitle("POO");
         stage.setScene(view.getPane().getScene());
         stage.show();

@@ -6,7 +6,6 @@ import model.Drone;
 import model.Position;
 import model.Robot;
 import model.Vehicle;
-import view.DecorFactory;
 import view.SpriteDecor;
 import view.SpriteDrone;
 import view.SpriteRobot;
@@ -22,31 +21,21 @@ public class Main extends Application {
         int width = 20;
         int height = 20;
 
+        // Creating World map
+        World world = new World(width, height, 5, 10);
+        SpriteDecor[] sprites_dec = world.randomizer();
+
         // Creation du robot et du drone
         Vehicle[] vehicle = new Vehicle[2];
         SpriteVehicle[] sprites_veh = new SpriteVehicle[2];
 
         Position position = new Position(4,4);
-        vehicle[0] = new Robot(position, 200, 2);
+        vehicle[0] = new Robot(position, 200, 2, world);
         sprites_veh[0] = new SpriteRobot((Robot) vehicle[0]);
 
         position = new Position(8,8);
         vehicle[1] = new Drone(position, 200, 2);
         sprites_veh[1] = new SpriteDrone((Drone) vehicle[1]);
-
-        // Creating World map
-        // SpriteDecor[] sprites_dec = new SpriteDecor[3];
-        // position = new Position(15, 10);
-        // sprites_dec[0] = DecorFactory.create(position, World.ROCK);
-
-        // position = new Position(11, 6);
-        // sprites_dec[1] = DecorFactory.create(position, World.DUST);
-
-        // position = new Position(9, 4);
-        // sprites_dec[2] = DecorFactory.create(position, World.ROCK);
-
-        World world = new World(width, height, 25, 10);
-        SpriteDecor[] sprites_dec = world.randomizer();
 
         // Affiche la fenetre
         View view = new View(width, height);
@@ -56,7 +45,7 @@ public class Main extends Application {
         view.getPane().setOnMouseClicked(e -> {
             Position target = view.getPosition(e);
             for(int i = 0; i < vehicle.length; i++){
-                if(vehicle[i].canMove(target) && !vehicle[i].getMoving() && !vehicle[i].getPosition().equals(target)){
+                if(vehicle[i].canMove(target) && !vehicle[i].getMoving() && !vehicle[i].getPosition().equals(target) && world.get(target) != World.ROCK){
                     sprites_veh[i].animateMove(target);
                 }
             }

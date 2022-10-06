@@ -47,6 +47,26 @@ public class World {
         return this.height;
     }
 
+    public int getPercentageRock(){
+        return this.percentageRock;
+    }
+
+    public int getPercentageDust(){
+        return this.percentageDust;
+    }
+
+    public boolean isRock(Position position){
+        return get(position) == ROCK;
+    }
+
+    public boolean isDust(Position position){
+        return get(position) == DUST;
+    }
+
+    public boolean isEmpty(Position position){
+        return get(position) == EMPTY;
+    }
+
     public SpriteDecor[] randomizer(){
         return randomizer(this.width, this.height);
     }
@@ -67,7 +87,7 @@ public class World {
             if( this.grid[rdm_pos.getX()][rdm_pos.getY()] == EMPTY){
                 // Adding the corresponding sprite to the array
                 dec_list.add(DecorFactory.create(rdm_pos, kind));
-                set(rdm_pos, kind);
+                this.set(rdm_pos, kind);
                 
                 // We placed a decor element, we decrement the counter
                 if(kind == DUST) nbr_dust--;

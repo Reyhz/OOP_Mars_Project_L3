@@ -41,7 +41,7 @@ public abstract class SpriteVehicle extends Sprite{
             ptr.play();
 
             ptr.setOnFinished(e -> {
-                vehicle.move(target);
+                vehicle.move(positionPath[positionPath.length-1]);
             });
         } else {
             // Direct move
